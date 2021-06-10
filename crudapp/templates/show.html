@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	</head>
+	<body>
+		<div class="container">
+			
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">userid</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+		<th scope="col">User Delete</th>
+		<th scope="col">User Update</th>
+		<th scope="col">User Show</th>
+		
+    </tr>
+  </thead>
+	{% for i in users%}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.email}}</td>
+      <td>{{i.password}}</td>
+		<td><a href="/delete/{{i.id}}" class="btn btn-danger btn-small">delete</a></td>
+		<td><a href="/edit/{{i.id}} "class="btn btn-primary btn-small">edit</a></td>
+    </tr>
+	 {% endfor %}
+    
+</table>
+			<a href="{% url 'index' %}" class="btn btn-success ">add</a>
+		</div>
+		</body>
+</html>
